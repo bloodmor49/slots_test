@@ -37,6 +37,5 @@ class MainRepositoryImpl @Inject constructor(
         val currentCoins = dbDao.getCoins(COIN_ID)
         val newCoins = currentCoins.copy(number = currentCoins.number + victoryCoins)
         dbDao.insertCoins(newCoins)
-        gameConfigure.nullifyBet()
     }
 }

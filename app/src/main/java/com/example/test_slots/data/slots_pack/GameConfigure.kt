@@ -43,7 +43,7 @@ class GameConfigure @Inject constructor() {
         return betValue * (mapOfMultipliers[2]!! * 2 +
                         mapOfMultipliers[3]!! * 4 +
                         mapOfMultipliers[4]!! * 6 +
-                        mapOfMultipliers[5]!! * 10)
+                        mapOfMultipliers[5]!! * 10) - betValue
     }
 
     private fun getRepeats(list: List<Int>): Map<Int, Int> {

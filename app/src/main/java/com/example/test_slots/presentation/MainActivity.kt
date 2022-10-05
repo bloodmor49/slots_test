@@ -31,18 +31,21 @@ class MainActivity : AppCompatActivity(), IEventEnd {
     override fun onEventFinishedCallback(result: List<Int>, count: Int) {
         if (viewModel.countOfFinishedSpins < NUMBER_OF_SLOTS) viewModel.countOfFinishedSpins++
         else {
+
+            val listOfResult = listOf(
+                binding.spinElements.reel1.value,
+                binding.spinElements.reel2.value,
+                binding.spinElements.reel3.value,
+                binding.spinElements.reel4.value,
+                binding.spinElements.reel5.value
+            )
+
             viewModel.countOfFinishedSpins = 0
+            viewModel.spin(listOfResult)
         }
         binding.bottomElements.btnSpin.visibility = View.VISIBLE
 
-        val listOfResult = listOf(
-            binding.spinElements.reel1.value,
-            binding.spinElements.reel2.value,
-            binding.spinElements.reel3.value,
-            binding.spinElements.reel4.value,
-            binding.spinElements.reel5.value
-        )
-        viewModel.spin(listOfResult)
+
     }
 
     private fun setUpListeners() {

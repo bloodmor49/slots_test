@@ -63,7 +63,6 @@ class MainViewModel @Inject constructor(
         coroutineScope.launch {
             val curBet = _currentBet.value ?: 0
             val curCoins = _coins.value!!.number
-            insertCoinsUseCase.invoke(Coin(number = curCoins - curBet))
             if (curCoins <= 0)
                 insertCoinsUseCase.invoke(Coin(number = START_COIN_VALUE))
             spinUseCase.invoke(curBet, listOfResult)
